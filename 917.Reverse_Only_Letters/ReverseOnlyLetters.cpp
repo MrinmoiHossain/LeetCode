@@ -1,17 +1,20 @@
 class Solution {
 public:
     string reverseOnlyLetters(string S) {
-        string ans = "";
-        int j = S.length() - 1;
+        stack<char> s;
+        for(char c : S){
+            if(isalpha(c))
+                s.push(c);
+        }
         
-        for(int i = 0; i < S.length(); ++i){
-            if(isalpha(S[i])){
-                while(!isalpha(S[j]))
-                    j--;
-                ans += S[j--];
+        string ans = "";
+        for(char c : S){
+            if(isalpha(c)){
+                ans += s.top();
+                s.pop();
             }
             else{
-                ans += S[i];
+                ans += c;
             }
         }
         
