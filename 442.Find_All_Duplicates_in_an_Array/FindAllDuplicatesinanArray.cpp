@@ -1,9 +1,13 @@
 class Solution {
 public:
     vector<int> findDuplicates(vector<int>& nums) {
+        ios::sync_with_stdio(false);
+        cin.tie(0);
+        cout.tie(0);
+        
         vector<int> ans;
-        for(int i = 0; i < nums.size(); ++i){
-            int j = abs(nums[i]) - 1;
+        for(auto v : nums){
+            int j = abs(v) - 1;
             
             if(nums[j] > 0)
                 nums[j] *= -1;
